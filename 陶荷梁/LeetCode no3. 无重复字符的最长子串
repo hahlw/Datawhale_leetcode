@@ -1,0 +1,31 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if s == '':
+            return 0
+        def pu_a(self):
+            starts = 0
+            end = 0 
+            sets = []
+            for k in range(0,len(self)):
+                if self[k] in sets:
+                    return False
+                    break
+                else:
+                    sets.append(self[k])
+                    end += 1
+            if end == len(self):
+                return True
+        n = len(s)
+        c =[]
+        print(n)
+        for i in range(0,n-1):
+            for j in range(i+1,n):
+                a = s[i:j]
+                pu_a(a)
+                if pu_a(a) == True:
+                    c.append(len(a))
+        return max(c)

@@ -1,0 +1,30 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[][]}
+ */
+var fourSum = function(nums, target, count = 4) {
+    nums = nums.sort();
+    let res = [];
+    let loop = (sum, acc, remain) => {
+        if (acc.length === count - 1) {
+            for (let i = 0; i < remain.length; i++){
+                if (sum + remain[i] === target) {
+                    acc.push(remain[i]);
+                    res.push(acc);
+                }
+                while (remain[i] === remain[i + 1]) i++;
+            }
+            return;
+        }
+        let next = 0;
+        while (next < remain.length) {
+            loop(sum + remain[next],[...acc, remain[next]],remain.slice(next + 1));
+            while (remain[next] === remain[next + 1]) next++;
+            next++;
+        }
+    };
+    loop(0,[],nums);
+    
+    return res
+};

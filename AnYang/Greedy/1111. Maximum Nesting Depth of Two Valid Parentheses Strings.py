@@ -46,3 +46,29 @@ class Solution:
                     ans.append(1)
                     B -= 1
         return ans
+
+"""  
+下面这个解法是提交的解答中最快的一个，作者不详。
+这个根据了A，B与S括号深度之间的关系。
+"""
+class Solution:
+    def maxDepthAfterSplit(self, seq: str) -> List[int]:
+#        "(()())" "()(())()"
+#        121210   10121010
+#        ((()))
+        depth = 1
+        res = [0]
+        for i in range(1,len(seq)):
+            if seq[i] == "(":
+                if depth % 2 == 0:
+                    res.append(0)
+                else: 
+                    res.append(1)
+                depth += 1
+            else:
+                if depth % 2 == 0:
+                    res.append(1)
+                else:
+                    res.append(0)
+                depth -= 1
+        return res

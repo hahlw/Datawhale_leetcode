@@ -9,6 +9,7 @@
 *1. 二维数组的特点，递增！
 *2. 直接挨个找就显得很蠢
 *3. 那就从边边角角来找，这里是从右上角来找的！挨个比，一直到比到一样大！
+*/
 class Solution{
 public:
     bool Find(int target, vector<vector<int>> arary){

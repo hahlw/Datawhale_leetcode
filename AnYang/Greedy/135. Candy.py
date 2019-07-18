@@ -19,8 +19,22 @@ i=0 1 2 3 4 5 6 7 8 9...             ...19
 
  """
 
-# 扫一遍的亲情况下，记录下升跟降的次数，最后加上底数1
+# 2019-07-17 Wed
+# 扫2遍的亲情况下，记录下升跟降的次数，最后加上底数1
 
+class Solution:
+    def candy(self, ratings: List[int]) -> int:
+        l_ratings = len(ratings)
+        ref = [1]*len(ratings)
+        for i in range(1, l_ratings):
+            if ratings[i] > ratings[i-1]:
+                ref[i] = ref[i-1] + 1
+        for i in range(l_ratings-2, -1, -1):
+            if ratings[i] > ratings[i+1]:
+                ref[i] = max(ref[i], ref[i+1]+1)
+        return sum(ref)
+
+# 2019-07-15 Mon
 class Solution:
     def candy(self, ratings: List[int]) -> int:
         sum = 0

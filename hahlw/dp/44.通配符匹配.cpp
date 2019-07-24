@@ -25,5 +25,29 @@ public:
         while (j < p.size() && p[j] == '*') ++j;
         return j == p.size();
     }
+    //DP
+    bool isMatch(string s, string p) {
+        if(p.empty())return s.empty();
+        int n = s.size();
+        int m = p.size();
+        vector<vector<bool>>dp(n+1,vector<bool>(m+1,false));
+        dp[0][0]=true;
+        for(int i = 0;i < m;i++){
+            if(p[i]=='*'&&dp[0][i]){
+                dp[0][i+1]=true;
+            }
+        }//连续的*,匹配空串
+        
+        for(int i = 0;i < n;i++){
+            for(int j =0;j < m;j++){
+                if(s[i]==p[j]||p[j]=='?')
+                    dp[i+1][j+1]=dp[i][j];
+                if(p[j]=='*'){//'*'可匹配任意字符，匹配空，匹配多个(如果匹配前i-1,那么前i个也可以匹配（多一个无所谓）)
+                    dp[i+1][j+1]=dp[i+1][j]||dp[i][j+1];
+                }
+            }
+        }
+        return dp[n][m];
+    }
 };
 

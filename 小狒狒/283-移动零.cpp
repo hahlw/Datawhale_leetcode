@@ -31,6 +31,6 @@ public:
                 ++it;
             }
         }
-        nums.insert(nums.begin(), count, 0);
+        nums.insert(nums.end(), count, 0);
     }
 };

@@ -41,7 +41,6 @@ public:
                 int area=minH*(i-j+1);
                 res=max(res,area);
             }
-
          }
          return res;
      }

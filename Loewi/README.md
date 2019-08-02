@@ -18,6 +18,5 @@
 -  
 
 ## 动态规划
-- 
-
+[32\. 最长有效括号](https://blog.csdn.net/weixin_42317507/article/details/97796400)
 

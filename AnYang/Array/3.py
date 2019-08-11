@@ -1,5 +1,5 @@
 def LukyS(line):
-    if not len(line): return 0
+    if len(line) <= 2: return len(line)
     
     idx_ref = [0]
     for idx in range(len(line)-1):
@@ -23,8 +23,10 @@ def LukyS(line):
 
 def main():
     nums = int(input("num\n"))
+    N = nums
     lines = []
     while nums:
+        print("input string", N - nums + 1)
         lines.append(input())
         nums -= 1
     print(lines)

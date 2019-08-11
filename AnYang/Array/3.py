@@ -8,7 +8,7 @@ def LukyS(line):
     if line[-1] == "N":
         idx_ref.append(len(line))
     if len(idx_ref) <= 4: return len(line)
-
+    print(idx_ref)
     maxL = []
     for idx in range(len(idx_ref) - 1):
         maxL.append(idx_ref[idx+1]-idx_ref[idx])
@@ -29,7 +29,7 @@ def main():
         print("input string", N - nums + 1)
         lines.append(input())
         nums -= 1
-    print(lines)
+    # print(lines)
     for line in lines:
         print(LukyS(str(line)))
         

@@ -16,7 +16,7 @@ def LukyS(line):
         maxL.append(idx_ref[idx+1]-idx_ref[idx])
 
     ret = 0
-    for i in range(len(maxL)-2):
+    for i in range(len(maxL)-1):
         ret = max(ret, (maxL[i]+maxL[i+1]))
     ret += 1
 

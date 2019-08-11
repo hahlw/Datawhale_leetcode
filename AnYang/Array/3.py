@@ -1,21 +1,23 @@
 def LukyS(line):
     if len(line) <= 2: return len(line)
     
-    idx_ref = [0]
-    for idx in range(len(line)-1):
+    idx_ref = []
+    if line[0] == 'N':
+        idx_ref.append(0)
+    for idx in range(len(line)):
         if line[idx] != "N":
             idx_ref.append(idx)
     if line[-1] == "N":
         idx_ref.append(len(line))
-    if len(idx_ref) <= 4: return len(line)
-    print(idx_ref)
+    # print(idx_ref)
+    if len(idx_ref) <= 3: return len(line)
     maxL = []
     for idx in range(len(idx_ref) - 1):
         maxL.append(idx_ref[idx+1]-idx_ref[idx])
 
     ret = 0
-    for i in range(len(maxL)-3):
-        ret = max(ret, (maxL[i]+maxL[i+1]+maxL[i+2]))
+    for i in range(len(maxL)-2):
+        ret = max(ret, (maxL[i]+maxL[i+1]))
     ret += 1
 
     return ret

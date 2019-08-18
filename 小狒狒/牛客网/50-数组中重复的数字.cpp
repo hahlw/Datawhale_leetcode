@@ -10,6 +10,7 @@ public:
     bool duplicate(int numbers[], int length, int* duplication) {
         map<int, int> m;
         for(int i=0; i<length; i++){
+            //挨个添加到hashmap中去！
             m[numbers[i]]++;
             if(m[numbers[i]] > 1){
                 *duplication = numbers[i];

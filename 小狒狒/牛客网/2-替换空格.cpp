@@ -13,6 +13,7 @@ public:
           {
               numOfBlanks++;
           }
+	  i++;
       }
       //Step3：计算新的字符串的长度
       int newStrLength = oldStrLength + 2 * numOfBlanks;

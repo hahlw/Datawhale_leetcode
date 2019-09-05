@@ -1,0 +1,36 @@
+class Solution {
+    public List<Integer> grayCode(int n) {
+        String last = "";
+        for(int i = 0;i < n;i++)
+            last += "0";
+        ans.add(0);
+        HashSet set = new HashSet();
+        set.add(last);
+        backtrack(1<<n,set,last);
+        return ans;
+    }
+    List<Integer>ans = new ArrayList();
+    
+    void backtrack(int n,HashSet<String>set,String last)
+    {
+        if(ans.size() == n)
+            return;
+        for(int i = 0;i < last.length();i++)
+        {
+            String newStr = last.substring(0,i)+(last.charAt(i)=='0'?"1":"0")+last.substring(i+1);
+            if(!set.contains(newStr))
+            {
+                set.add(newStr);
+                int val = 0;
+                int mul = 1;
+                for(int k = newStr.length()-1;k >= 0;k--)
+                {
+                    val += mul*(newStr.charAt(k)-'0');
+                    mul *= 2;
+                }
+                ans.add(val);
+                backtrack(n,set,newStr);
+            }
+        }
+    }
+}

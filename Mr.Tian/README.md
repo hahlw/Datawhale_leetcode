@@ -1,8 +1,29 @@
 刷题记录
 
+2019-09-05
+
+189. Rotate Array
 ```java
-// 2019-09-04 
-// 28. strStr()
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int n = nums.length;
+        k = k % n;
+        int temp;
+        for (int i = 0; i < k; i++) {
+        	temp = nums[n-1];
+        	for(int j = n-1; j > 0; j--) {
+        		nums[j] = nums[j - 1];
+        	}
+        	nums[0] = temp;
+        }
+    }
+}
+```
+
+2019-09-04 
+
+28. strStr()
+```
 public int strStr(String haystack, String needle) {
 		if(needle.length() == 0)
 			return 0;

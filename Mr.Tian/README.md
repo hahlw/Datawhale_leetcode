@@ -33,8 +33,7 @@ public int strStr(String haystack, String needle) {
 	current = haystack.substring(l, l + needle.length());
 	if(current.equals(needle))
 	    return l;
-	}
-		
+    }	
     return 0;
 }
 ```

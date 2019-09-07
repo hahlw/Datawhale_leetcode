@@ -1,5 +1,40 @@
 刷题记录
 
+2019-09-07
+
+299. Bulls and Cows
+
+```java
+public String getHint(String secret, String guess) {
+    int A = 0, B = 0;
+    ArrayList<Character> list = new ArrayList<>();
+    HashMap<Character, Integer> hashmap = new HashMap<>();
+    for(int i = 0; i < secret.length(); i++) {
+	char current = secret.charAt(i);
+	if (secret.charAt(i) == guess.charAt(i))
+	    A++;
+	else {
+	    list.add(guess.charAt(i));
+	    if (hashmap.containsKey(current))
+		hashmap.put(current, hashmap.get(current) + 1);
+	    else
+		hashmap.put(current, 1);
+	}
+    }
+
+    for(Character i : list) {
+	if (hashmap.containsKey(i)){
+	    B++;
+	    hashmap.put(i, hashmap.get(i) - 1);
+	    if (hashmap.get(i) == 0)
+		hashmap.remove(i);
+	}
+    }
+    return A + "A" + B + "B";
+}
+```
+
+
 2019-09-06
 
 41. First Missing Positive

@@ -1,5 +1,33 @@
 刷题记录
 
+2019-09-06
+
+41. First Missing Positive
+
+```java
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        if(nums.length == 0)
+            return 1;
+        for(int i = 0; i < nums.length; i++){
+            while(nums[i] > 0 && nums[i] < nums.length){
+                int temp = nums[nums[i] - 1];
+                if(temp == nums[i])
+                    break;
+                nums[nums[i] - 1] = nums[i];
+                nums[i] = temp;
+            }
+        }
+        
+        for(int i = 0; i < nums.length; i++){
+            if (nums[i] != i+1)
+                return i+1;
+        }
+        return nums.length + 1;
+    }
+}
+```
+
 2019-09-05
 
 189. Rotate Array

@@ -6,36 +6,46 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        int size = s.size();
-        int maxsize = 0;
-        for(int i = 0; i < size; i++)
+
+        int length = s.length();
+
+        if(length <=0)
         {
-            unordered_map<char,int> m;
-            int tmp = 0;
-            for(int j = i;j < size;j++)
-            {
-                if(m.find(s[j]) == m.end())
-                {
-                    m.insert(make_pair(s[j],0));
-                    tmp++;
-                }
-                else
-                {
-                    /* code */
-                    break;
-                }
-
-            }
-
-            if(tmp > maxsize)
-            {
-                maxsize = tmp;
-            }
+            return 0;
         }
-        
-        return maxsize;
+
+        int i,j, k, r = 1;
+        for(i = 0; i < length; i++)
+        {
+            int c =1;
+            bool isdif = true;
+            for(j = i + 1;j < length;j++)
+            {
+                 for(k = i; k < j;k++)
+                 {
+                     if(s[j] == s[k])
+                     {
+                         isdif = false;
+                        break;  
+                     }
+                 }
+                 if(!isdif)
+                 {
+                     break;
+                 }
+            }
+
+            c = (j - i);
+
+            if(c > r)
+            {
+                r = c;
+            }
+
+        }
+
+        return r;
 
     }
-
 };
 

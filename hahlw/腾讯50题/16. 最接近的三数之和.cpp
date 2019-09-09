@@ -1,11 +1,12 @@
 #include<iostream>
 #include<vector>
+#include<limits.h>
+#include<algorithm>
 using namespace std;
 class Solution {
 public:
     int threeSumClosest(vector<int>& nums, int target) {
-        int close = INT_MAX;
-
+        int close = INT_MAX; 
         int res = 0;
         int n = nums.size();
         if(n<=2)

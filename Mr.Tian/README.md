@@ -2,6 +2,8 @@
 
 2019-09-09
 
+69. Sqrt(x)
+
 ```java
 class Solution {
     public int mySqrt(int x) {
@@ -15,6 +17,8 @@ class Solution {
 ```
 
 2019-09-08
+
+14. Longest Common Prefix
 
 ```java
 class Solution {

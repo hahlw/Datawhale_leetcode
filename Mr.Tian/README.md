@@ -1,5 +1,44 @@
 刷题记录
 
+2019-09-09
+
+69. Sqrt(x)
+
+```java
+class Solution {
+    public int mySqrt(int x) {
+        long a = x;
+        while (a * a > x) {
+            a = (a + x / a) / 2;
+        }
+        return (int)a;
+    }
+}
+```
+
+2019-09-08
+
+14. Longest Common Prefix
+
+```java
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if(strs.length == 0)
+        	return "";
+        String prefix = strs[0];
+        for(int i = 1; i < strs.length; i++) {
+        	while (strs[i].indexOf(prefix) != 0) {
+        		prefix = prefix.substring(0, prefix.length()-1);
+        		if (prefix.isEmpty())
+        			return "";
+        	}
+        }
+        
+        return prefix;
+    }
+}
+```
+
 2019-09-07
 
 299. Bulls and Cows

@@ -1,5 +1,30 @@
 刷题记录
 
+2019-09-10
+
+274. H-index
+
+```java
+class Solution {
+    public int hIndex(int[] citations) {
+        if(citations.length == 0)
+            return 0;
+        Arrays.sort(citations);
+        int count = 0;
+        for(int i = citations.length - 1; i >= 0; i--){
+            if(citations[i] >= citations.length - i){
+                count ++;
+            }
+            else{
+                break;
+            }
+        }
+        return count;
+    }
+}
+```
+
+
 2019-09-09
 
 69. Sqrt(x)

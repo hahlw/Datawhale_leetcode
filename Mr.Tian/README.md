@@ -1,5 +1,28 @@
 刷题记录
 
+2019-09-15
+
+1189. Maximum Number of Balloons
+
+```python
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        # b a l o n
+        count = [0, 0, 0, 0, 0]
+        for i in range(len(text)):
+            if text[i] == 'b':
+                count[0] += 1
+            elif text[i] == 'a':
+                count[1] += 1
+            elif text[i] == 'l':
+                count[2] += 1
+            elif text[i] == 'o':
+                count[3] += 1
+            elif text[i] == 'n':
+                count[4] += 1
+        return min(min(min(min(count[0], count[1]), count[2] // 2), count[3]//2), count[4])
+```
+
 2019-09-10
 
 274. H-index

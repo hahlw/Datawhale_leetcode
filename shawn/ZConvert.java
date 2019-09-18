@@ -74,4 +74,53 @@ class Solution {
         return new String(chars);
     }
     
+    //技巧,高效
+    public String convert(String s, int numRows) {
+		int curRow = 0;
+		// 存储当前行
+		int side = numRows * 2 - 2;
+		// 查找工具
+		char[] chars1 = s.toCharArray();
+		char[] chars2 = new char[s.length()];
+		boolean turn = true;
+		int j = 0, i = 0;
+		if (numRows == 1) {
+			return s;
+		}
+		while (curRow + side * j < s.length()) {
+			chars2[i] = chars1[curRow + side * j];
+			j++;
+			i++;
+		}
+		curRow++;
+		j = curRow;
+		while (curRow != numRows - 1) {
+			if (turn && j < s.length()) {
+				chars2[i] = chars1[j];
+				i++;
+				j += side - 2 * curRow;
+				turn = !turn;
+				continue;
+			} else if (!turn && j < s.length()) {
+				chars2[i] = chars1[j];
+				i++;
+				j += 2 * curRow;
+				turn = !turn;
+				continue;
+			} else {
+				curRow++;
+				j = curRow;
+				turn = true;
+				continue;
+			}
+		}
+		j = 0;
+		while (curRow + side * j < s.length()) {
+			chars2[i] = chars1[curRow + side * j];
+			j++;
+			i++;
+		}
+		s = new String(chars2);
+		return s;
+	}
 }

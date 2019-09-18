@@ -29,6 +29,7 @@ class Solution {
     //行 0 中的字符位于索引 k  = (2 * numRows  - 2) 处;
     //行 numRows-1 中的字符位于索引 k = (2⋅numRows−2)+numRows−1 处;
     //内部的 行 i 中的字符位于索引 k=(2⋅numRows−2)+i 以及 (k+1)=(2⋅numRows−2)−i 处;
+    //时间空间复杂读如上
     public String convert(String s, int numRows) {
 
         if (numRows == 1) return s;

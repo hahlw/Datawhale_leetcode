@@ -1,5 +1,30 @@
 刷题记录
 
+2019-09-17
+
+58. Length of Last Word
+
+```java
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int count = 0, r = s.length() - 1;
+        boolean begin = false;
+        for(;r >= 0; r--){
+            if(s.charAt(r) == ' ' && !begin)
+                continue;
+            
+            if(Character.isLetter(s.charAt(r))){
+                count ++;
+                begin = true;
+            }
+            else if(begin)
+                break;
+        }
+        return count;
+    }
+}
+```
+
 2019-09-16
 
 1191. K-Concatenation Maximum Sum

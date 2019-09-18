@@ -1,5 +1,55 @@
 刷题记录
 
+2019-09-17
+
+58. Length of Last Word
+
+```java
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int count = 0, r = s.length() - 1;
+        boolean begin = false;
+        for(;r >= 0; r--){
+            if(s.charAt(r) == ' ' && !begin)
+                continue;
+            
+            if(Character.isLetter(s.charAt(r))){
+                count ++;
+                begin = true;
+            }
+            else if(begin)
+                break;
+        }
+        return count;
+    }
+}
+```
+
+2019-09-16
+
+1191. K-Concatenation Maximum Sum
+
+```python
+class Solution:
+    def kConcatenationMaxSum(self, arr: List[int], k: int) -> int:
+        def kadane(arr):
+            cur_ans, ans = 0, 0
+            for num in arr:
+                cur_ans = max(cur_ans + num, num)
+                ans = max(ans, cur_ans)
+            return ans
+        
+        if k == 1:
+            return kadane(arr)
+        
+        s = sum(arr)
+        if s <= 0:
+            return kadane(arr*2) %  (10**9+7)
+        else:
+            return (s * (k-2) + kadane(arr*2)) % (10**9+7)
+```
+
+
 2019-09-15
 
 1189. Maximum Number of Balloons

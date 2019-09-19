@@ -1,5 +1,57 @@
 刷题记录
 
+2019-09-18
+
+50. Pow(x, n)
+
+```java
+class Solution {
+    public double myPow(double x, int n) {
+        long N = n;
+        if (N < 0){
+            x = 1 / x;
+            N = -N;
+        }
+        return pow(x, N);
+    }
+    
+    private double pow(double x, long n){
+        if(n == 0)
+            return 1.0;
+        double half = pow(x, n/2);
+        if (n % 2 == 0)
+            return half * half;
+        else
+            return half * half * x;
+    }
+}
+```
+
+2019-09-17
+
+58. Length of Last Word
+
+```java
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int count = 0, r = s.length() - 1;
+        boolean begin = false;
+        for(;r >= 0; r--){
+            if(s.charAt(r) == ' ' && !begin)
+                continue;
+            
+            if(Character.isLetter(s.charAt(r))){
+                count ++;
+                begin = true;
+            }
+            else if(begin)
+                break;
+        }
+        return count;
+    }
+}
+```
+
 2019-09-16
 
 1191. K-Concatenation Maximum Sum

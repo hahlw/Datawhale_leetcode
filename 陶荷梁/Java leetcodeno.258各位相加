@@ -1,0 +1,20 @@
+package leetcode_soulution;
+
+public class LeetCode258各位相加 {
+	    public int addDigits(int num) {
+	        char[] chars = String.valueOf(num).toCharArray();
+	        while (chars.length != 1) {
+	            int temp = get(chars);
+	            chars = String.valueOf(temp).toCharArray();
+	        }
+	        return Integer.parseInt(String.valueOf(chars[0]));
+	    }
+	    public static int get(char[] chars) {
+	        int result = 0;
+	        for (int i = 0; i < chars.length; i++){
+	            result += Integer.parseInt(String.valueOf(chars[i]));
+	        }
+	        return result;
+	    }   
+	                
+	}

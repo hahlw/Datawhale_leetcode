@@ -1,5 +1,50 @@
 刷题记录
 
+2019-09-19
+
+367. Valid Perfect Square
+
+```java
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        if (num == 1)
+            return true;
+        int i = num / 2;
+        while((double)i * i > num){
+            i = (i + num / i) / 2;
+        }
+        return i*i == num;
+    }
+}
+```
+
+2019-09-18
+
+50. Pow(x, n)
+
+```java
+class Solution {
+    public double myPow(double x, int n) {
+        long N = n;
+        if (N < 0){
+            x = 1 / x;
+            N = -N;
+        }
+        return pow(x, N);
+    }
+    
+    private double pow(double x, long n){
+        if(n == 0)
+            return 1.0;
+        double half = pow(x, n/2);
+        if (n % 2 == 0)
+            return half * half;
+        else
+            return half * half * x;
+    }
+}
+```
+
 2019-09-17
 
 58. Length of Last Word

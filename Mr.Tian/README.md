@@ -1,5 +1,30 @@
 刷题记录
 
+2019-09-21
+
+```java
+class Solution {
+    public int firstUniqChar(String s) {
+        HashMap<Character, Integer> count = new HashMap<Character, Integer>();
+        for(int i = 0; i < s.length(); i++){
+            char current = s.charAt(i);
+            if(count.containsKey(current))
+                count.put(current, count.get(current) + 1);
+            else
+                count.put(current, 1);
+            }
+        
+        
+        for(int i = 0; i < s.length(); i++){
+            if (count.get(s.charAt(i)) == 1)
+                return i;
+        }
+        
+        return -1;
+    }
+}
+```
+
 2019-09-20
 
 217. Contains Duplicate

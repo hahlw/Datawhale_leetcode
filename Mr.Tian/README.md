@@ -1,5 +1,25 @@
 刷题记录
 
+2019-09-20
+
+217. Contains Duplicate
+
+```java
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashMap<Integer, Integer> hashmap = new HashMap<>();
+        for (int i : nums){
+            if (hashmap.containsKey(i)) {
+            	return true;
+            }
+            else
+            	hashmap.put(i, 1);
+        }
+        return false;
+    }
+}
+```
+
 2019-09-19
 
 367. Valid Perfect Square

@@ -1,5 +1,68 @@
 刷题记录
 
+2019-09-21
+
+```java
+class Solution {
+    public int firstUniqChar(String s) {
+        HashMap<Character, Integer> count = new HashMap<Character, Integer>();
+        for(int i = 0; i < s.length(); i++){
+            char current = s.charAt(i);
+            if(count.containsKey(current))
+                count.put(current, count.get(current) + 1);
+            else
+                count.put(current, 1);
+            }
+        
+        
+        for(int i = 0; i < s.length(); i++){
+            if (count.get(s.charAt(i)) == 1)
+                return i;
+        }
+        
+        return -1;
+    }
+}
+```
+
+2019-09-20
+
+217. Contains Duplicate
+
+```java
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashMap<Integer, Integer> hashmap = new HashMap<>();
+        for (int i : nums){
+            if (hashmap.containsKey(i)) {
+            	return true;
+            }
+            else
+            	hashmap.put(i, 1);
+        }
+        return false;
+    }
+}
+```
+
+2019-09-19
+
+367. Valid Perfect Square
+
+```java
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        if (num == 1)
+            return true;
+        int i = num / 2;
+        while((double)i * i > num){
+            i = (i + num / i) / 2;
+        }
+        return i*i == num;
+    }
+}
+```
+
 2019-09-18
 
 50. Pow(x, n)

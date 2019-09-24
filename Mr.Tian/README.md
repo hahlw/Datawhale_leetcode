@@ -1,6 +1,47 @@
 刷题记录
 
+2019-09-23
+
+383. Ransom Note
+
+```java
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character, Integer> ransom = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> have = new HashMap<Character, Integer>();
+        
+        for (int i = 0; i < ransomNote.length(); i++){
+            char letter = ransomNote.charAt(i);
+            
+            if (!ransom.containsKey(letter))
+                ransom.put(letter, 1);
+            else
+                ransom.put(letter, ransom.get(letter) + 1);
+        }
+        
+        for (int i = 0; i < magazine.length(); i++){
+            char letter = magazine.charAt(i);
+            
+            if (!have.containsKey(letter))
+                have.put(letter, 1);
+            else
+                have.put(letter, have.get(letter) + 1);
+        }
+        
+        for (Character key : ransom.keySet()){
+            int provide = have.containsKey(key) ? have.get(key) : 0;
+            if (ransom.get(key) > provide)
+                return false;
+        }
+        
+        return true;
+    }
+}
+```
+
 2019-09-22
+
+55. Jump Game
 
 ```java
 class Solution {
@@ -18,6 +59,8 @@ class Solution {
 ```
 
 2019-09-21
+
+387. First Unique Character in a String
 
 ```java
 class Solution {

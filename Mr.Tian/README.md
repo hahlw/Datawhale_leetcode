@@ -1,5 +1,31 @@
 刷题记录
 
+2019-09-24
+
+45. Jump Game II
+
+```java
+class Solution {
+    public int jump(int[] nums) {
+        if (nums.length < 2)
+            return 0;
+        int cur_max = nums[0];
+        int pre_max = nums[0];
+        int jump = 1;
+        for(int i = 0; i < nums.length; i++){
+            if (i > cur_max){
+                jump ++;
+                cur_max = pre_max;
+            }
+            
+            pre_max = Math.max(pre_max, i + nums[i]);
+        }
+        
+        return jump;
+    }
+}
+```
+
 2019-09-23
 
 383. Ransom Note

@@ -1,5 +1,27 @@
 刷题记录
 
+2019-09-26
+
+344. Reverse String
+
+```java
+class Solution {
+    public void reverseString(char[] s) {
+        if(s.length >= 2 && s != null){
+            int left = 0, right = s.length - 1;
+            while(left < right){
+                char temp = s[left];
+                s[left] = s[right];
+                s[right] = temp;
+                left ++;
+                right --;
+            }
+        }
+        
+    }
+}
+```
+
 2019-09-25
 
 365. Water and Jug Problem

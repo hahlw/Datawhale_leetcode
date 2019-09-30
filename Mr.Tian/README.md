@@ -1,6 +1,125 @@
 刷题记录
 
+2019-09-29
+
+151. Reverse Words in a String
+
+```python
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        return " ".join(s.split()[::-1])
+```
+
+2019-09-26
+
+344. Reverse String
+
+```java
+class Solution {
+    public void reverseString(char[] s) {
+        if(s.length >= 2 && s != null){
+            int left = 0, right = s.length - 1;
+            while(left < right){
+                char temp = s[left];
+                s[left] = s[right];
+                s[right] = temp;
+                left ++;
+                right --;
+            }
+        }
+        
+    }
+}
+```
+
+2019-09-25
+
+365. Water and Jug Problem
+
+```java
+class Solution {
+    public boolean canMeasureWater(int x, int y, int z) {
+        return z == 0 || ( x + y >= z && z % gcd( x , y ) == 0);
+    }
+    
+    private static int gcd(int number1, int number2) {
+        //base case
+        if(number2 == 0){
+            return number1;
+        }
+        return gcd(number2, number1%number2);
+    }
+}
+```
+
+2019-09-24
+
+45. Jump Game II
+
+```java
+class Solution {
+    public int jump(int[] nums) {
+        if (nums.length < 2)
+            return 0;
+        int cur_max = nums[0];
+        int pre_max = nums[0];
+        int jump = 1;
+        for(int i = 0; i < nums.length; i++){
+            if (i > cur_max){
+                jump ++;
+                cur_max = pre_max;
+            }
+            
+            pre_max = Math.max(pre_max, i + nums[i]);
+        }
+        
+        return jump;
+    }
+}
+```
+
+2019-09-23
+
+383. Ransom Note
+
+```java
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character, Integer> ransom = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> have = new HashMap<Character, Integer>();
+        
+        for (int i = 0; i < ransomNote.length(); i++){
+            char letter = ransomNote.charAt(i);
+            
+            if (!ransom.containsKey(letter))
+                ransom.put(letter, 1);
+            else
+                ransom.put(letter, ransom.get(letter) + 1);
+        }
+        
+        for (int i = 0; i < magazine.length(); i++){
+            char letter = magazine.charAt(i);
+            
+            if (!have.containsKey(letter))
+                have.put(letter, 1);
+            else
+                have.put(letter, have.get(letter) + 1);
+        }
+        
+        for (Character key : ransom.keySet()){
+            int provide = have.containsKey(key) ? have.get(key) : 0;
+            if (ransom.get(key) > provide)
+                return false;
+        }
+        
+        return true;
+    }
+}
+```
+
 2019-09-22
+
+55. Jump Game
 
 ```java
 class Solution {
@@ -18,6 +137,8 @@ class Solution {
 ```
 
 2019-09-21
+
+387. First Unique Character in a String
 
 ```java
 class Solution {

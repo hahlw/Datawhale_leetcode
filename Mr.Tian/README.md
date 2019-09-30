@@ -1,5 +1,15 @@
 刷题记录
 
+2019-09-29
+
+151. Reverse Words in a String
+
+```python
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        return " ".join(s.split()[::-1])
+```
+
 2019-09-26
 
 344. Reverse String

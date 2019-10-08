@@ -94,4 +94,23 @@ class Solution {
         }
         return stringBuilder.toString();
     }
+
+    //搜索插入位置
+    public int searchInsert(int[] nums, int target) {
+        
+        if(nums.length == 0) return 0;
+        
+        int len = nums.length;
+        int start = 0;
+        int end = len - 1;
+        while(start <= end){
+            int mid = start + end >> 1 ;
+            if(nums[mid] == target) return mid;
+            else if(nums[mid] > target) end = mid - 1;
+            else start  = mid + 1;
+        }
+        
+        return start;
+    }
+
 }

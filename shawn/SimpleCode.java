@@ -134,4 +134,29 @@ class Solution {
         
         return maxSum;
     }
+    public int maxSubArray2(int[] nums) {
+        int res = nums[0];
+        int sum = 0;
+        for (int num : nums) {
+            if (sum > 0)
+                sum += num;
+            else
+                sum = num;
+            res = Math.max(res, sum);
+        }
+        return res;
+    }
+    /*
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+         """
+        for i in range(1, len(nums)):
+            nums[i]= nums[i] + max(nums[i-1], 0)
+        return max(nums)
+    */
+    
+    
+    
 }

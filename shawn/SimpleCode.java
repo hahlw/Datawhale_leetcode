@@ -113,4 +113,25 @@ class Solution {
         return start;
     }
 
+    //最大子序和
+    public int maxSubArray(int[] nums) {
+        int maxSum = nums[0];
+        int sum = 0;
+        for(int j = 1; j < nums.length; j++){
+            
+            if(sum < 0){
+                sum = nums[j];
+                if(sum > maxSum){
+                    maxSum = sum;
+                }
+                continue;
+            }
+            sum += nums[j];
+            if(sum > maxSum){
+                maxSum = sum;
+            }
+        }
+        
+        return maxSum;
+    }
 }

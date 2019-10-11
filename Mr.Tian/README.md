@@ -1,5 +1,48 @@
 刷题记录
 
+2019-10-11
+
+345. Reverse Vowels of a String
+
+```python
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        '''
+        s = list(s)
+        vow = "aeiouAEIOU"
+        pos = []
+        let = []
+        
+        for i in range(len(s)):
+            if s[i] in vow:
+                let.append(s[i])
+                pos.append(i)
+        
+        let = list(reversed(let))
+        for i in range(len(pos)):
+            s[pos[i]] = let[i]
+            
+        return "".join(s)
+        '''
+        
+        s = list(s)
+        l, r = 0, len(s)-1
+        
+        vow = "aeiouAEIOU"
+        
+        while l < r:
+            
+            while s[l] not in vow and l < r:
+                l += 1
+            while s[r] not in vow and r > l:
+                r -= 1
+            if l < r:
+                s[l], s[r] = s[r], s[l]
+                l , r = l+1, r-1
+        
+        return "".join(s)
+```
+
 2019-09-29
 
 151. Reverse Words in a String

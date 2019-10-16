@@ -182,5 +182,38 @@ class Solution {
         return res;
     }
 
+    //数组加1
+    public int[] plusOne(int[] digits) {
+        if(digits == null && digits.length == 0) return null;
+        
+        int toSum = 0;
+        int len = digits.length;
+        int one = 1;
+        for(int i=digits.length-1; i>=0; i--){
+            int s = digits[i]  + toSum + one;
+            one = 0;
+            if(s>=10){
+                digits[i] = s % 10;
+                toSum = 1;
+            }else{
+                digits[i] = s;
+                toSum = 0;
+                break;
+            }
+            
+        }
+        if(toSum > 0){
+            int[] dig = new int[len+1];
+            dig[0] = 1;
+            for(int i =1 ;i<len+1; i++){
+                dig[i] = digits[i-1];
+            }
+            return dig;
+        }
+        
+        return digits;
+    }
+
+    
     
 }
